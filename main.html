@@ -9,6 +9,7 @@
 
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/slick/slick.min.js"></script>
+        <script src="js/jquery.scrollTo.min.js"></script>
         <script src="js/tools.js"></script>
 
         <meta name="viewport" content="width=device-width" />
@@ -63,13 +64,13 @@
                 <div class="welcome-footer">
                     <div class="welcome-footer-veropharm"></div>
                     <div class="welcome-footer-abbott"></div>
-                    <div class="welcome-footer-next">Узнать больше</div>
+                    <div class="welcome-footer-next"><a href="#main-more" class="next-link">Узнать больше</a></div>
                 </div>
             </div>
             <!-- welcome END -->
 
             <!-- main more -->
-            <div class="main-more">
+            <div class="main-more" id="main-more">
                 <div class="container">
                     <div class="main-more-title">Узнать больше</div>
                     <div class="main-more-text">Программа профессионального развития для будущих специалистов фармацевтической отрасли «A2B: Академия для бизнеса» запущена Abbott и «ВЕРОФАРМ» в 2015г. совместно с ведущими профильными университетами России.</div>
@@ -98,17 +99,18 @@
                     </div>
                 </div>
                 <div class="main-more-footer">
-                    <div class="main-more-career">
-                        <a href="#" class="main-more-career-link">Карьера в ВЕРОФАРМ</a>
-                        <a href="#" class="main-more-career-close"></a>
-                    </div>
-                    <div class="main-more-next">Содержание программы</div>
+                    <div class="main-more-next"><a href="#main-content" class="next-link">Содержание программы</a></div>
                 </div>
             </div>
             <!-- main more END -->
 
+            <div class="main-more-career">
+                <a href="#" class="main-more-career-link">Карьера в ВЕРОФАРМ</a>
+                <a href="#" class="main-more-career-close"></a>
+            </div>
+
             <!-- main content -->
-            <div class="main-content">
+            <div class="main-content" id="main-content">
                 <div class="container">
                     <div class="main-content-title">Содержание программы</div>
                     <div class="main-content-steps">
@@ -135,13 +137,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="main-content-next">Новости</div>
+                    <div class="main-content-next"><a href="#main-events" class="next-link">Новости</a></div>
                 </div>
             </div>
             <!-- main content END -->
 
             <!-- main events -->
-            <div class="main-events">
+            <div class="main-events" id="main-events">
                 <div class="container">
                     <div class="main-events-header">
                         <div class="main-events-title">События</div>
@@ -508,13 +510,13 @@
                     </div>
                     <!-- main events tabs END -->
 
-                    <div class="main-events-next">Галерея А2B</div>
+                    <div class="main-events-next"><a href="#main-gallery" class="next-link">Галерея А2B</a></div>
                 </div>
             </div>
             <!-- main events END -->
 
             <!-- main gallery -->
-            <div class="main-gallery">
+            <div class="main-gallery" id="main-gallery">
                 <div class="container">
                     <div class="main-gallery-title">Галерея A2B</div>
 
@@ -582,13 +584,13 @@
                     </div>
                     <!-- main gallery list END -->
 
-                    <div class="main-gallery-next">Обратная связь</div>
+                    <div class="main-gallery-next"><a href="#main-feedback" class="next-link">Обратная связь</a></div>
                 </div>
             </div>
             <!-- main gallery END -->
 
             <!-- main feedback -->
-            <div class="main-feedback">
+            <div class="main-feedback" id="main-feedback">
                 <div class="container">
                     <div class="main-feedback-title">Обратная<br /> связь</div>
                     <div class="main-feedback-content">

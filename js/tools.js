@@ -22,4 +22,22 @@ $(document).ready(function() {
         nextArrow: '<button type="button" class="slick-next"></button>',
     });
 
+    $('body').on('click', '.next-link', function(e) {
+        var curItem = $($(this).attr('href'));
+        if (curItem.length > 0) {
+            $.scrollTo(curItem, {duration: 500});
+        }
+        e.preventDefault();
+    });
+
+    $(window).on('load resize scroll', function() {
+        var curScroll = $(window).scrollTop();
+        var curHeight = $(window).height();
+        if ((curScroll + curHeight > $('.main-more').offset().top + 100) && (curScroll + curHeight < $('.main-gallery').offset().top - 100)) {
+            $('.main-more-career').addClass('visible');
+        } else {
+            $('.main-more-career').removeClass('visible');
+        }
+    });
+
 });
