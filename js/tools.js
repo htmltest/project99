@@ -96,6 +96,18 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('.module-menu ul li a').click(function(e) {
+        var curLi = $(this).parent();
+        if (!curLi.hasClass('active') && !curLi.hasClass('authorized')) {
+            var curIndex = $('.module-menu ul li:not(.authorized)').index(curLi);
+            $('.module-menu ul li.active').removeClass('active');
+            curLi.addClass('active');
+            $('.module-info-item.active').removeClass('active');
+            $('.module-info-item').eq(curIndex).addClass('active');
+        }
+        e.preventDefault();
+    });
+
 });
 
 $(window).on('resize', function() {
