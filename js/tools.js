@@ -56,6 +56,11 @@ $(document).ready(function() {
         }
     });
 
+    $('.main-more-career-close').click(function(e) {
+        $('.main-more-career').remove();
+         e.preventDefault();
+    });
+
     $('.module-info-video-list-inner').slick({
         dots: false,
         infinite: false,

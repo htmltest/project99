@@ -162,6 +162,7 @@ nav ul li ul {display:block; position:absolute; left:0; top:100%; white-space:no
 nav ul li.nav-with-submenu.active ul::before {content:""; display:block; position:absolute; left:50%; top:0; bottom:0; width:343px; margin-left:-171px; background:url(../images/header-submenu.png)}
 nav ul li ul li {float:none; display:inline-block; vertical-align:top; font-size:14px; line-height:40px; letter-spacing:0}
 nav ul li.active ul li a {color:#c7c8cc; background:none}
+nav ul li.active ul li a:hover {color:#c39fdf}
 nav ul li.active ul li.active a {color:#c39fdf; position:relative}
 nav ul li.nav-with-submenu ul li a::after {display:none}
 nav ul li.active ul li.active::after {content:""; display:block; position:absolute; left:16px; bottom:0; right:16px; height:3px; background:#c39fdf}
@@ -238,9 +239,10 @@ nav ul li.active ul li.active::after {content:""; display:block; position:absolu
 
 .main-more-career {visibility:hidden; opacity:0; position:fixed; z-index:99; right:39px; bottom:39px; width:269px; height:50px; background:#c39fdf; transition:all .3s}
 .main-more-career.visible {visibility:visible; opacity:1}
-.main-more-career::before {content:""; display:block; position:absolute; right:48px; top:6px; bottom:6px; width:1px; background:rgba(242, 242, 242, .5)}
-.main-more-career-link {color:#f2f2f2; text-decoration:none; font-size:14px; line-height:50px; float:left; margin:0 0 0 21px}
-.main-more-career-link:hover {text-decoration:underline}
+.main-more-career::before {content:""; display:block; position:absolute; right:48px; top:6px; bottom:6px; width:1px; background:rgba(242, 242, 242, .5); z-index:2}
+.main-more-career-link {display:block; color:#f2f2f2; text-decoration:none; font-size:14px; line-height:50px; padding:0 0 0 21px; position:relative; transition:all .3s}
+.main-more-career-link:hover {background:#d9c7eb; color:#fff}
+.main-more-career-link:active {background:#b795d1; color:#fff}
 
 .main-more-career-close {position:absolute; right:0; top:0; display:block; width:48px; height:50px; background:url(../images/main-more-career-close.png) no-repeat center}
 
