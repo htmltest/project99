@@ -144,6 +144,26 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $(window).on('load resize', function() {
+        if ($('.module-menu ul').length > 0) {
+            if ($(window).width() > 1199) {
+                $('.module-menu ul').each(function() {
+                    if ($(this).hasClass('slick-slider')) {
+                        $(this).slick('unslick');
+                    }
+                });
+            } else {
+                $('.module-menu ul').slick({
+                    infinite: false,
+                    variableWidth: true,
+                    adaptiveHeight: false,
+                    dots: false,
+                    arrows: false
+                });
+            }
+        }
+    });
+
     $('.mobile-menu-link').click(function(e) {
         $('html').addClass('mobile-menu-open');
         e.preventDefault();
@@ -310,7 +330,16 @@ function windowOpen(linkWindow, dataWindow, callbackWindow) {
             infinite: false,
             slidesToShow: 8,
             slidesToScroll: 8,
-            arrows: false
+            arrows: false,
+            responsive: [
+                {
+                    breakpoint: 1199,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4
+                    }
+                }
+            ]
         });
 
         $('.window-gallery-preview-item a').click(function(e) {
@@ -333,9 +362,13 @@ function windowPosition() {
     if ($('.window').length > 0) {
         $('.window-container').css({'left': '50%', 'margin-left': -$('.window-container').width() / 2});
 
-        $('.window-container').css({'top': '50%', 'margin-top': -$('.window-container').height() / 2, 'padding-bottom': 0});
-        if ($('.window-container').height() > $('.window').height() - 60) {
-            $('.window-container').css({'top': '30px', 'margin-top': 0, 'padding-bottom': 30});
+        if ($('.window-gallery').length == 0) {
+            $('.window-container').css({'top': '50%', 'margin-top': -$('.window-container').height() / 2, 'padding-bottom': 0});
+            if ($('.window-container').height() > $('.window').height() - 60) {
+                $('.window-container').css({'top': '30px', 'margin-top': 0, 'padding-bottom': 30});
+            }
+        } else {
+            $('.window-container').css({'top': '0', 'margin-top': 0, 'padding-bottom': 30});
         }
     }
 }
