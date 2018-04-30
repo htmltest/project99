@@ -180,6 +180,206 @@ $(document).ready(function() {
         }
     });
 
+    $('body').on('click', '.window-gallery-preview-item a', function(e) {
+        var curItem = $(this).parent();
+        if (!curItem.hasClass('active')) {
+            var curIndex = $('.window-gallery-preview-item').index(curItem);
+            $('.gallery-link').eq(curIndex).trigger('click');
+        }
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.window-gallery-next', function(e) {
+        var curIndex = $('.window-gallery-preview-item').index($('.window-gallery-preview-item.active'));
+        curIndex++;
+        if (curIndex > $('.window-gallery-preview-item').length - 1) {
+            curIndex = 0;
+        }
+        $('.gallery-link').eq(curIndex).trigger('click');
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.window-gallery-prev', function(e) {
+        var curIndex = $('.window-gallery-preview-item').index($('.window-gallery-preview-item.active'));
+        curIndex--;
+        if (curIndex < 0) {
+            curIndex = $('.window-gallery-preview-item').length - 1;
+        }
+        $('.gallery-link').eq(curIndex).trigger('click');
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.gallery-link', function(e) {
+        var curPadding = $('.wrapper').width();
+        $('html').addClass('window-open');
+        curPadding = $('.wrapper').width() - curPadding;
+        $('body').css({'margin-right': curPadding + 'px'});
+
+        if ($('.window').length > 0) {
+            $('.window').remove();
+        }
+
+        $('body').append('<div class="window"><div class="window-loading"></div></div>')
+
+        var curLink = $(this);
+        var galleryIndex = $('.gallery-link').index(curLink);
+        var newHTML =   '<div class="window-gallery">' +
+                            '<div class="window-gallery-title">' + curLink.data('gallery-title') + '</div>' +
+                            '<div class="window-gallery-header">' +
+                                '<div class="window-gallery-header-text"><div class="window-gallery-header-text-inner"></div></div>' +
+                                '<div class="window-gallery-header-info">' +
+                                    '<div class="window-gallery-header-info-date"></div>' +
+                                    '<div class="window-gallery-header-info-place"></div>' +
+                                '</div>' +
+                            '</div>';
+
+        newHTML +=          '<div class="window-gallery-big">' +
+                                '<div class="window-gallery-big-inner">';
+
+        curLink.parent().find('.main-gallery-item-list .gallery-item-link').each(function() {
+            newHTML +=              '<div class="window-gallery-big-item" title="' + $(this).data('gallery-item-title') + '" data-date="' + $(this).data('gallery-item-date') + '" data-city="' + $(this).data('gallery-item-city') + '"><img src="' + $(this).attr('href') + '" alt="" /></div>';
+        });
+
+        newHTML +=              '</div>' +
+                                '<a href="#" class="window-gallery-prev"></a>' +
+                                '<a href="#" class="window-gallery-next"></a>' +
+                            '</div>';
+
+        newHTML +=          '<div class="window-gallery-preview">' +
+                                '<div class="window-gallery-preview-inner">';
+
+        $('.gallery-link').each(function() {
+            newHTML +=              '<div class="window-gallery-preview-item"><a href="#" title="' + $(this).data('gallery-title') + '"><img src="' + $(this).data('gallery-preview') + '" alt="" /></a></div>';
+        });
+
+        newHTML +=              '</div>' +
+                            '</div>';
+
+        newHTML +=      '</div>';
+
+        $('.window').append('<div class="window-container window-container-load"><div class="window-content">' + newHTML + '<a href="#" class="window-close"></a></div></div>')
+        $('.window-gallery-preview-item').eq(galleryIndex).addClass('active');
+
+        if ($('.window-container img').length > 0) {
+            $('.window-container img').each(function() {
+                $(this).attr('src', $(this).attr('src'));
+            });
+            $('.window-container').data('curImg', 0);
+            $('.window-container img').one('load', function() {
+                var curImg = $('.window-container').data('curImg');
+                curImg++;
+                $('.window-container').data('curImg', curImg);
+                if ($('.window-container img').length == curImg) {
+                    $('.window-container').removeClass('window-container-load');
+                    $('.window-loading').remove();
+                    windowPosition();
+                }
+            });
+        } else {
+            $('.window-container').removeClass('window-container-load');
+            $('.window-loading').remove();
+            windowPosition();
+        }
+
+        $('.window-gallery-big-inner').slick({
+            dots: true,
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false
+        }).on('setPosition', function(slick) {
+            var curIndex = $('.window-gallery-big-inner').slick('slickCurrentSlide');
+            var curItem = $('.window-gallery-big-item').eq(curIndex);
+            $('.window-gallery-header-text-inner').html(curItem.attr('title'));
+            $('.window-gallery-header-info-date').html(curItem.data('date'));
+            $('.window-gallery-header-info-place').html(curItem.data('city'));
+        });
+
+        $('.window-gallery-preview-inner').slick({
+            dots: false,
+            infinite: false,
+            slidesToShow: 8,
+            slidesToScroll: 8,
+            arrows: false,
+            responsive: [
+                {
+                    breakpoint: 1199,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 4
+                    }
+                }
+            ]
+        });
+
+        e.preventDefault();
+    });
+
+
+    $('body').on('click', '.onegallery-item-link', function(e) {
+        var curPadding = $('.wrapper').width();
+        $('html').addClass('window-open');
+        curPadding = $('.wrapper').width() - curPadding;
+        $('body').css({'margin-right': curPadding + 'px'});
+
+        if ($('.window').length > 0) {
+            $('.window').remove();
+        }
+
+        $('body').append('<div class="window"><div class="window-loading"></div></div>')
+
+        var curLink = $(this);
+        var galleryIndex = $('.gallery-link').index(curLink);
+        var newHTML =   '<div class="window-gallery">' +
+                            '<div class="window-gallery-title">' + curLink.data('gallery-item-title') + '</div>';
+
+        newHTML +=          '<div class="window-gallery-big">' +
+                                '<div class="window-gallery-big-inner">';
+
+        curLink.parent().parent().find('.onegallery-item-link').each(function() {
+            newHTML +=              '<div class="window-gallery-big-item"><img src="' + $(this).attr('href') + '" alt="" /></div>';
+        });
+
+        newHTML +=              '</div>' +
+                            '</div>';
+
+        newHTML +=      '</div>';
+
+        $('.window').append('<div class="window-container window-container-load"><div class="window-content">' + newHTML + '<a href="#" class="window-close"></a></div></div>')
+        $('.window-gallery-preview-item').eq(galleryIndex).addClass('active');
+
+        if ($('.window-container img').length > 0) {
+            $('.window-container img').each(function() {
+                $(this).attr('src', $(this).attr('src'));
+            });
+            $('.window-container').data('curImg', 0);
+            $('.window-container img').one('load', function() {
+                var curImg = $('.window-container').data('curImg');
+                curImg++;
+                $('.window-container').data('curImg', curImg);
+                if ($('.window-container img').length == curImg) {
+                    $('.window-container').removeClass('window-container-load');
+                    $('.window-loading').remove();
+                    windowPosition();
+                }
+            });
+        } else {
+            $('.window-container').removeClass('window-container-load');
+            $('.window-loading').remove();
+            windowPosition();
+        }
+
+        $('.window-gallery-big-inner').slick({
+            dots: true,
+            infinite: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false
+        });
+
+        e.preventDefault();
+    });
+
 });
 
 $(window).on('resize', function() {
@@ -309,44 +509,6 @@ function windowOpen(linkWindow, dataWindow, callbackWindow) {
             $('.window-container').removeClass('window-container-load');
             windowPosition();
         }
-
-        var startGalleryIndex = 0;
-        if (Number(dataWindow)) {
-            startGalleryIndex = Number(dataWindow);
-        }
-
-        $('.window-gallery-big-inner').slick({
-            dots: true,
-            infinite: false,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            initialSlide: startGalleryIndex,
-            prevArrow: '<button type="button" class="slick-prev"></button>',
-            nextArrow: '<button type="button" class="slick-next"></button>'
-        });
-
-        $('.window-gallery-preview-inner').slick({
-            dots: false,
-            infinite: false,
-            slidesToShow: 8,
-            slidesToScroll: 8,
-            arrows: false,
-            responsive: [
-                {
-                    breakpoint: 1199,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 4
-                    }
-                }
-            ]
-        });
-
-        $('.window-gallery-preview-item a').click(function(e) {
-            var curIndex = $('.window-gallery-preview-item').index($(this).parent());
-            $('.window-gallery-big-inner').slick('slickGoTo', curIndex);
-            e.preventDefault();
-        });
 
         if (typeof (callbackWindow) != 'undefined') {
             callbackWindow.call();
