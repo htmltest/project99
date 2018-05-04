@@ -542,3 +542,9 @@ function windowClose() {
         $('body').css({'margin-right': 0});
     }
 }
+
+
+$(window).on('load', function() {
+    $('.wrapper').addClass('preloadsuccess');
+    $('.welcome').addClass('animate');
+});
