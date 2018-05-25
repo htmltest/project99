@@ -98,7 +98,16 @@ $(document).ready(function() {
         slidesToShow: 2,
         slidesToScroll: 2,
         prevArrow: '<button type="button" class="slick-prev"></button>',
-        nextArrow: '<button type="button" class="slick-next"></button>'
+        nextArrow: '<button type="button" class="slick-next"></button>',
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     });
 
     $('body').on('click', '.window-link', function(e) {
@@ -140,6 +149,9 @@ $(document).ready(function() {
             curLi.addClass('active');
             $('.module-info-item.active').removeClass('active');
             $('.module-info-item').eq(curIndex).addClass('active');
+            if ($('.module-menu ul').hasClass('slick-slider')) {
+                $('.module-menu ul').slick('goTo', curIndex);
+            }
         }
         e.preventDefault();
     });
@@ -286,13 +298,17 @@ $(document).ready(function() {
             infinite: false,
             slidesToShow: 1,
             slidesToScroll: 1,
-            arrows: false
+            prevArrow: '<button type="button" class="slick-prev"></button>',
+            nextArrow: '<button type="button" class="slick-next"></button>'
         }).on('setPosition', function(slick) {
             var curIndex = $('.window-gallery-big-inner').slick('slickCurrentSlide');
             var curItem = $('.window-gallery-big-item').eq(curIndex);
             $('.window-gallery-header-text-inner').html(curItem.attr('title'));
             $('.window-gallery-header-info-date').html(curItem.data('date'));
             $('.window-gallery-header-info-place').html(curItem.data('city'));
+            var curWidth = $('.window-gallery-big-inner .slick-dots li').length * 17 - 8;
+            $('.window-gallery-big-inner .slick-prev').css({'margin-left': -curWidth / 2 - 17});
+            $('.window-gallery-big-inner .slick-next').css({'margin-left': curWidth / 2 + 8});
         });
 
         $('.window-gallery-preview-inner').slick({
@@ -544,7 +560,9 @@ function windowClose() {
 }
 
 
-$(window).on('load', function() {
+Pace.on('done', function() {
+    $('.revealator-within').removeClass('revealator-within');
     $('.wrapper').addClass('preloadsuccess');
     $('.welcome').addClass('animate');
+    $(window).trigger('scroll');
 });
