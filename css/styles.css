@@ -186,11 +186,15 @@ nav ul li {float:left; margin:0 0 0 6px; padding:0; position:relative}
 nav ul li:first-child {margin:0}
 nav ul li::before {display:none}
 nav ul li a {display:block; padding:0 16px; color:#c7c8cc; text-decoration:none; position:relative}
-nav ul li a::before {content:""; display:block; position:absolute; left:16px; bottom:10px; width:calc(100% - 32px); height:1px; background:#c39fdf; transform:scaleX(0); transform-origin:right; transition:transform .2s cubic-bezier(.455, .03, .515, .955)}
-nav ul li a:hover {color:#c39fdf}
-nav ul li a:hover::before {transform:scaleX(1); transform-origin:left}
+@media screen and (min-width:1200px) {
+    nav ul li a::before {content:""; display:block; position:absolute; left:16px; bottom:10px; width:calc(100% - 32px); height:1px; background:#c39fdf; transform:scaleX(0); transform-origin:right; transition:transform .2s cubic-bezier(.455, .03, .515, .955)}
+    nav ul li a:hover {color:#c39fdf}
+    nav ul li a:hover::before {transform:scaleX(1); transform-origin:left}
+}
 nav ul li.active a {color:#c39fdf; background:rgba(0, 0, 0, .5)}
-nav ul li.active > a::before {display:none}
+@media screen and (min-width:1200px) {
+    nav ul li.active > a::before {display:none}
+}
 nav ul li.nav-with-submenu a::after {content:""; display:inline-block; vertical-align:middle; margin:0 -7px 0 8px; width:14px; height:8px; background:url(../images/header-menu-arrow.png)}
 nav ul li ul {display:block; position:absolute; left:0; top:100%; white-space:nowrap; height:40px; font-size:0; line-height:0; letter-spacing:-1px}
 nav ul li.nav-with-submenu.active ul::before {content:""; display:block; position:absolute; left:50%; top:0; bottom:0; width:343px; margin-left:-171px; background:url(../images/header-submenu.png)}
@@ -201,24 +205,25 @@ nav ul li.active ul li.active a {color:#c39fdf; position:relative}
 nav ul li.nav-with-submenu ul li a::after {display:none}
 nav ul li.active ul li.active::after {content:""; display:block; position:absolute; left:16px; bottom:0; right:16px; height:3px; background:#c39fdf}
 
-.nav-mobile-close {display:none}
-
 @media screen and (max-width:1199px) {
     nav {display:none}
-    .mobile-menu-open nav {display:block; position:fixed; left:0; top:0; right:0; bottom:0; padding:30px 0 0 20px; overflow:auto; background:rgba(0, 0, 0, 0.7); z-index:9999; margin:0; font-size:20px; line-height:50px}
-    .nav-mobile-close {display:block; margin:0 0 14px 330px; width:25px; height:25px; background:url(../images/nav-mobile-close.png)}
-    nav ul {background:#fff; width:355px; padding:19px 0}
-    nav ul li {float:none; margin:0; padding:0}
-    nav ul li a {padding:0 0 0 38px; color:#25354f}
+    .mobile-menu-open header {z-index:9999}
+    .mobile-menu-open nav {display:block; position:fixed; left:0; top:0; right:0; bottom:0; padding:69px 0 0 0; overflow:auto; background:rgba(0, 0, 0, 0.7); z-index:9999; margin:0; font-size:20px; line-height:50px}
+    nav ul {background:#fff; width:auto; padding:15px 35px 10px 35px}
+    nav ul li {float:none; margin:0; padding:0; border-top:1px solid #dfdfdf}
+    nav ul li:first-child {border-top:none}
+    nav ul li a {padding:8px 0; color:#25354f}
     nav ul li a:hover {color:#25354f}
-    nav ul li.active a {color:#fff; background:#c39fdf}
-    nav ul li.nav-with-submenu a::after {width:18px; height:9px; margin:0 0 0 13px; background:url(../images/header-menu-arrow-mobile.png)}
-    nav ul li ul {position:static; left:auto; top:auto; height:auto; padding:0}
+    nav ul li.active a {color:#25354f; background:transparent}
+    nav ul li.nav-with-submenu a::after {width:18px; height:9px; margin:0 0 0 43px; background:url(../images/header-menu-arrow-mobile.png)}
+    nav ul li ul {display:none; position:static; left:auto; top:auto; height:auto; padding:0}
+    nav ul li.open ul {display:block; padding:0 0 0 38px}
     nav ul li.nav-with-submenu.active ul::before {display:none}
-    nav ul li ul li {display:block; font-size:16px; line-height:50px}
-    nav ul li.active ul li a {color:#25354f; background:none; padding-left:68px}
+    nav ul li ul li {display:block; font-size:16px; line-height:67px; border:none}
+    nav ul li.open ul li a  {padding:0}
+    nav ul li.active ul li a {color:#25354f; background:none; padding:0}
     nav ul li.active ul li a:hover {color:#25354f}
-    nav ul li.active ul li.active a {color:#fff; background:#c39fdf; position:relative}
+    nav ul li.active ul li.active a {color:#25354f; background:transparent; position:relative}
 }
 
 .header-search {float:right; margin:63px 49px 0 0}
@@ -285,22 +290,6 @@ nav ul li.active ul li.active::after {content:""; display:block; position:absolu
 .practice-header-descr {font-size:32px; line-height:47px; padding:20px 0 0 0}
 .practice-header-back {font-size:14px; background:url(../images/practice-header-back.png) no-repeat left center; padding:0 0 0 34px; text-transform:none; margin:23px 0 0 89px}
 .practice-header-back a {color:#fff}
-/*
-.welcome-content {position:absolute; left:0; top:50%; right:0; margin-top:-200px}
-.welcome-content-wrap {position:relative; padding:0 0 0 25px; max-width:940px}
-.welcome-content-wrap::before {content:""; display:block; position:absolute; left:101px; top:0; width:658px; bottom:0; background:#c39fdf; transform:scale(1.5); opacity:0; transition:all 1s 1s}
-.welcome-content-inner {display:table; width:100%; position:relative}
-.welcome-content-text {display:table-cell; vertical-align:middle; height:399px; color:#f2f2f2; text-transform:uppercase}
-.welcome-content-title {font-weight:bold; font-size:42px; line-height:47px; position:relative; overflow:hidden}
-.welcome-content-title-inner {transform:translate(0%, 100%); transition:all .3s 2s}
-.welcome.animate .welcome-content-title-inner {transform:none}
-.welcome-content-descr {font-size:26px; line-height:47px; padding:6px 0 0 0}
-.welcome-content-descr-str {position:relative; overflow:hidden}
-.welcome-content-descr-str-inner {transform:translate(0%, 100%); transition:all .3s 2.1s}
-.welcome-content-descr-str:nth-child(2) .welcome-content-descr-str-inner {transition:all .3s 2.2s}
-.welcome-content-descr-str:nth-child(3) .welcome-content-descr-str-inner {transition:all .3s 2.3s}
-.welcome.animate .welcome-content-descr-str-inner {transform:none; opacity:1}
-*/
 
 @media screen and (max-width:1199px) {
     .practice-header {padding:102px 0 32px 0}
@@ -522,7 +511,15 @@ nav ul li.active ul li.active::after {content:""; display:block; position:absolu
     .main-events-menu-current {display:block; position:relative; font:16px/18px GothamProMedium, sans-serif; cursor:pointer}
     .main-events-menu-current::after {content:""; display:inline-block; vertical-align:middle; margin:0 0 8px 20px; width:14px; height:8px; background:url(../images/main-events-menu-current.png)}
     .main-events-menu-current-text {display:inline-block; vertical-align:middle; border-bottom:2px solid #25354f; padding:0 0 8px 0}
-    .main-events-menu ul {display:none}
+    .main-events-menu ul {display:none; position:absolute; right:0; top:0; background:#f5f6f8; white-space:nowrap; padding:5px 0 22px 0}
+    .main-events-menu.open ul {display:block}
+    .main-events-menu ul li {float:none; width:auto; margin:0; padding:5px 0 0 0}
+    .main-events-menu ul li a {display:block; color:#25354f; padding:0 43px 0 15px}
+    .main-events-menu ul li a:hover {color:#25354f}
+    .main-events-menu ul li.active a {color:#25354f; background:#d9c7eb}
+    .main-events-menu-title {line-height:35px}
+    .main-events-menu ul li.active .main-events-menu-title {text-decoration:none}
+    .main-events-menu-text {display:none}
 }
 
 .main-events-tabs {position:relative; margin:-11px 0 0 0; z-index:10}
@@ -674,7 +671,25 @@ nav ul li.active ul li.active::after {content:""; display:block; position:absolu
 .theory {position:relative; z-index:1; width:1076px; height:752px; margin:82px auto 0 auto; text-align:center; left:-12px}
 .theory-center {position:absolute; left:396px; top:230px; width:316px; height:314px; background:url(../images/theory-center.png); font:67px/314px GothamProLight, sans-serif}
 .theory-center strong {font-weight:normal; font-family:GothamProMedium, sans-serif}
-.theory-item {display:block; width:204px; background:#d9c7eb; color:#253451; text-decoration:none; position:absolute; transition:all .2s}
+.theory-item {display:block; width:204px; background:#d9c7eb; color:#253451; text-decoration:none; position:absolute; opacity:0}
+div.theory-item {background:#efefef}
+.theory.animate .theory-item {opacity:1}
+.theory-item.theory-item-01 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease 0}
+.theory-item.theory-item-02 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .1s}
+.theory-item.theory-item-03 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .15s}
+.theory-item.theory-item-04 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .2s}
+.theory-item.theory-item-05 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .25s}
+.theory-item.theory-item-06 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .3s}
+.theory-item.theory-item-07 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .35s}
+.theory-item.theory-item-08 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .4s}
+.theory-item.theory-item-09 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .45s}
+.theory-item.theory-item-10 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .5s}
+.theory-item.theory-item-11 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .55s}
+.theory-item.theory-item-12 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .6s}
+.theory-item.theory-item-13 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .65s}
+.theory-item.theory-item-14 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .7s}
+.theory-item.theory-item-15 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .75s}
+.theory-item.theory-item-16 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .8s}
 .theory-item::after {content:""; display:block; position:absolute; opacity:0.5; pointer-events:none; transition:all .2s}
 .theory-item-01 {left:558px; top:0}
 .theory-item-01::after {left:33px; top:99px; width:44px; height:139px; background:url(../images/theory-line-01.png)}
@@ -708,8 +723,8 @@ nav ul li.active ul li.active::after {content:""; display:block; position:absolu
 .theory-item-15::after {left:204px; top:73px; width:135px; height:156px; background:url(../images/theory-line-15.png)}
 .theory-item-16 {left:337px; top:0}
 .theory-item-16::after {left:110px; top:99px; width:50px; height:143px; background:url(../images/theory-line-16.png)}
-.theory-item:hover {background:#c39fdf; color:#fff}
-.theory-item:hover::after {opacity:1}
+a.theory-item:hover {background:#c39fdf; color:#fff}
+a.theory-item:hover::after {opacity:1}
 .theory-item-wrap {display:table; width:100%}
 .theory-item-inner {display:table-cell; vertical-align:middle; height:98px; padding:0 10px}
 
@@ -729,17 +744,23 @@ nav ul li.active ul li.active::after {content:""; display:block; position:absolu
 .theory-calendar::after {content:""; display:block; position:absolute; left:100%; top:0; bottom:0; width:9999px; background:#f5f6f8}
 .theory-calendar-list {max-width:1040px; position:relative; z-index:1; padding:30px 0 66px 0}
 .theory-calendar-item {display:table; width:100%; margin:14px 0}
-.theory-calendar-item-month {display:table-cell; vertical-align:middle; width:170px; padding:0 0 0 60px; text-transform:uppercase; color:#ccc; position:relative}
+.theory-calendar-item-month {display:table-cell; vertical-align:top; width:170px; padding:0 0 0 60px; text-transform:uppercase; color:#ccc; position:relative}
+.theory-calendar-item.active .theory-calendar-item-month {padding-top:41px}
+.theory-calendar-item.future .theory-calendar-item-month {padding-top:41px}
 .theory-calendar-item-month::before {content:""; display:block; position:absolute; left:44px; top:-7px; bottom:-7px; width:1px; background:#ccc}
 .theory-calendar-item:first-child .theory-calendar-item-month::before {top:50%}
-.theory-calendar-item:last-child .theory-calendar-item-month::before {bottom:50%}
+.theory-calendar-item:last-child .theory-calendar-item-month::before {bottom:100%; margin-bottom:-57px}
 .theory-calendar-item-month::after {content:""; display:block; position:absolute; left:35px; top:50%; background:#fff; width:17px; height:17px; border:1px solid #ccc; margin-top:-9px; border-radius:50%}
+.theory-calendar-item.active .theory-calendar-item-month::after {top:57px}
+.theory-calendar-item.future .theory-calendar-item-month::after {top:57px}
 .theory-calendar-item.active .theory-calendar-item-month::after {width:15px; height:15px; border:2px solid #c39fdf; background:#fff url(../images/theory-calendar-item-month.png) no-repeat center}
 .theory-calendar-item.future .theory-calendar-item-month::after {width:15px; height:15px; border:2px solid #c39fdf}
 .theory-calendar-item.active .theory-calendar-item-month {color:#253451; font:20px/30px GothamProMedium, sans-serif}
 .theory-calendar-item.future .theory-calendar-item-month {color:#253451; font:20px/30px GothamProMedium, sans-serif}
-.theory-calendar-item-content {display:table-cell; vertical-align:top; background:#c39fdf; color:#fff; padding:25px 60px 30px 60px}
-.theory-calendar-item.future .theory-calendar-item-content {background:#fff; color:#253451; box-shadow:1px 1px 4px rgba(0, 0, 0, 0.09)}
+.theory-calendar-item-content {display:table-cell; vertical-align:top}
+.theory-calendar-item-container {background:#c39fdf; color:#fff; padding:25px 60px 30px 60px}
+.theory-calendar-item-container+.theory-calendar-item-container {margin-top:10px}
+.theory-calendar-item.future .theory-calendar-item-container {background:#fff; color:#253451; box-shadow:1px 1px 4px rgba(0, 0, 0, 0.09)}
 .theory-calendar-item-anonce {text-transform:uppercase; color:#d0d4df; font-size:10px; margin:-10px 0 -2px 0}
 .theory-calendar-item-title {font:20px/30px GothamProMedium, sans-serif; text-transform:uppercase}
 .theory-calendar-item-title a {color:#fff}
