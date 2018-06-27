@@ -427,6 +427,27 @@ nav ul li.active ul li.active::after {content:""; display:block; position:absolu
 .main-more-next a {display:inline-block; vertical-align:top; text-decoration:none; color:#bcc3d3}
 .main-more-next a::after {content:""; display:block; width:16px; height:16px; margin:8px auto 0 auto; background:url(../images/main-more-next.png)}
 
+.city-window {display:none}
+@media screen and (min-width:1200px) {
+    .main-more-item:hover {position:relative; z-index:1}
+    .city-name {color:#a469d1; white-space:nowrap; position:relative; border-bottom:1px dashed #a469d1}
+    .city-window {font-family:GothamPro, sans-serif; color:#25354f; text-transform:none; white-space:normal; position:absolute; left:50%; margin-left:-227px; bottom:100%; margin-bottom:22px; width:404px; padding:0 25px 20px 25px; background:#fff; z-index:99; box-shadow:1px 1px 27px 0 rgba(0, 0, 0, 0.14)}
+    .city-window::before {content:""; display:block; position:absolute; left:0; bottom:-22px; right:0; height:22px; background:url(../images/blank.gif)}
+    .city-window::after {content:""; display:block; border-top:13px solid #fff; border-left:17px solid transparent; border-right:17px solid transparent; position:absolute; left:50%; margin-left:-17px; bottom:-13px}
+    .city-name:hover {border-bottom:none}
+    .city-name:hover .city-window {display:block}
+    .city-window-title {text-transform:uppercase; font-weight:bold; font-size:20px; line-height:24px; padding:26px 0 0 0}
+    .city-window-text {font-weight:normal; font-size:14px; line-height:24px; padding:14px 0 0 0}
+    .city-window-links {padding:19px 0 0 0; font-weight:normal}
+    .city-window-links::after {content:""; display:block; clear:both}
+    .city-window-link-video {float:left; width:141px; height:48px; font-size:14px; line-height:48px; text-align:center; text-decoration:none; color:#fff; background:#c39fdf; transition:all 0.2s}
+    .city-window-link-video:hover {background:#d9c7eb; color:#fff}
+    .city-window-link-video:active {background:#b795d1; color:#fff}
+    .city-window-link-detail {float:right; width:256px; height:48px; font-size:14px; line-height:48px; text-align:center; text-decoration:none; color:#fff; background:#c39fdf; transition:all 0.2s}
+    .city-window-link-detail:hover {background:#d9c7eb; color:#fff}
+    .city-window-link-detail:active {background:#b795d1; color:#fff}
+}
+
 .main-content {position:relative; z-index:10; padding:55px 0 50px 0}
 .main-content-title {text-transform:uppercase; font-weight:bold; font-size:36px; line-height:47px; text-align:center}
 .main-content-steps {background:url(../images/main-content.jpg) no-repeat center top; padding:293px 0 0 0; margin:36px 0 0 0}
