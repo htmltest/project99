@@ -697,7 +697,7 @@ nav ul li.active ul li.active::after {content:""; display:block; position:absolu
 }
 
 .theory {position:relative; z-index:1; width:1076px; height:752px; margin:82px auto 0 auto; text-align:center; left:-12px}
-.theory-center {position:absolute; left:396px; top:230px; width:316px; height:314px; background:url(../images/theory-center.png); font:67px/314px GothamProLight, sans-serif}
+.theory-center {position:absolute; left:396px; top:230px; width:316px; height:314px; background:url(../images/theory-center.png); font:67px/314px GothamProLight, sans-serif; z-index:2}
 .theory-center strong {font-weight:normal; font-family:GothamProMedium, sans-serif}
 .theory-item {display:block; width:204px; background:#d9c7eb; color:#253451; text-decoration:none; position:absolute; opacity:0}
 div.theory-item {background:#efefef}
@@ -719,38 +719,32 @@ div.theory-item {background:#efefef}
 .theory-item.theory-item-15 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .75s}
 .theory-item.theory-item-16 {transition:background .2s ease 0s, color .2s ease 0s, opacity .1s ease .8s}
 .theory-item::after {content:""; display:block; position:absolute; opacity:0.5; pointer-events:none; transition:all .2s}
-.theory-item-01 {left:558px; top:0}
-.theory-item-01::after {left:33px; top:99px; width:44px; height:139px; background:url(../images/theory-line-01.png)}
-.theory-item-02 {left:782px; top:39px}
+.theory-item-01 {left:448px; top:0px}
+.theory-item-01::after {left:73px; top:99px; width:44px; height:139px; background:url(../images/theory-line-01.png); transform:rotate(-18deg)}
+.theory-item-02 {left:682px; top:50px}
 .theory-item-02::after {left:-136px; top:69px; width:134px; height:156px; background:url(../images/theory-line-02.png)}
-.theory-item-03 {left:826px; top:154px; width:239px}
+.theory-item-03 {left:786px; top:180px; width:239px}
 .theory-item-03::after {left:-149px; top:40px; width:150px; height:101px; background:url(../images/theory-line-03.png)}
-.theory-item-04 {left:872px; top:268px}
+.theory-item-04 {left:832px; top:310px}
 .theory-item-04::after {left:-169px; top:34px; width:169px; height:44px; background:url(../images/theory-line-04.png)}
-.theory-item-05 {left:872px; top:386px}
+.theory-item-05 {left:822px; top:440px}
 .theory-item-05::after {left:-165px; top:8px; width:166px; height:6px; background:url(../images/theory-line-05.png)}
-.theory-item-06 {left:827px; top:500px; width:249px}
+.theory-item-06 {left:787px; top:570px; width:249px}
 .theory-item-06::after {left:-132px; top:-56px; width:132px; height:57px; background:url(../images/theory-line-06.png)}
-.theory-item-07 {left:782px; top:615px}
-.theory-item-07::after {left:-119px; top:-121px; width:124px; height:121px; background:url(../images/theory-line-07.png)}
-.theory-item-08 {left:559px; top:654px}
-.theory-item-08::after {left:48px; top:-124px; width:54px; height:124px; background:url(../images/theory-line-08.png)}
-.theory-item-09 {left:337px; top:654px}
-.theory-item-09::after {left:100px; top:-126px; width:58px; height:126px; background:url(../images/theory-line-09.png)}
-.theory-item-10 {left:114px; top:615px}
-.theory-item-10::after {left:199px; top:-122px; width:127px; height:122px; background:url(../images/theory-line-10.png)}
-.theory-item-11 {left:34px; top:500px; width:239px}
-.theory-item-11::after {left:239px; top:-44px; width:141px; height:67px; background:url(../images/theory-line-11.png)}
-.theory-item-12 {left:0; top:386px; width:228px}
-.theory-item-12::after {left:230px; top:16px; width:168px; height:17px; background:url(../images/theory-line-12.png)}
-.theory-item-13 {left:0; top:268px; width:228px}
-.theory-item-13::after {left:228px; top:42px; width:174px; height:39px; background:url(../images/theory-line-13.png)}
-.theory-item-14 {left:69px; top:154px}
-.theory-item-14::after {left:204px; top:56px; width:146px; height:96px; background:url(../images/theory-line-14.png)}
-.theory-item-15 {left:114px; top:39px}
-.theory-item-15::after {left:204px; top:73px; width:135px; height:156px; background:url(../images/theory-line-15.png)}
-.theory-item-16 {left:337px; top:0}
-.theory-item-16::after {left:110px; top:99px; width:50px; height:143px; background:url(../images/theory-line-16.png)}
+.theory-item-07 {left:578px; top:674px}
+.theory-item-07::after {left:0; top:-141px; width:124px; height:121px; background:url(../images/theory-line-07.png); transform:rotate(20deg)}
+.theory-item-08 {left:318px; top:674px}
+.theory-item-08::after {left:108px; top:-144px; width:54px; height:124px; background:url(../images/theory-line-08.png); transform:rotate(40deg) scale(1.2)}
+.theory-item-09 {left:110px; top:570px}
+.theory-item-09::after {left:235px; top:-110px; width:58px; height:126px; background:url(../images/theory-line-09.png); transform:rotate(30deg)}
+.theory-item-10 {left:50px; top:440px}
+.theory-item-10::after {left:225px; top:-50px; width:127px; height:122px; background:url(../images/theory-line-10.png); transform:rotate(30deg)}
+.theory-item-11 {left:40px; top:310px; width:239px}
+.theory-item-11::after {left:249px; top:14px; width:141px; height:67px; background:url(../images/theory-line-11.png); transform:rotate(30deg)}
+.theory-item-13 {left:110px; top:180px; width:228px}
+.theory-item-13::after {left:218px; top:70px; width:174px; height:39px; background:url(../images/theory-line-13.png); transform:rotate(20deg)}
+.theory-item-16 {left:208px; top:50px}
+.theory-item-16::after {left:230px; top:69px; width:50px; height:143px; background:url(../images/theory-line-16.png); transform:rotate(-20deg)}
 a.theory-item:hover {background:#c39fdf; color:#fff}
 a.theory-item:hover::after {opacity:1}
 .theory-item-wrap {display:table; width:100%}

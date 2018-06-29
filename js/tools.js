@@ -420,7 +420,7 @@ $(document).ready(function() {
 
     $('.city-name').click(function() {
         $('.city-name').removeClass('hover');
-        $('.city-name').addClass('hover');
+        $(this).addClass('hover');
     });
 
     $('.city-window-close').click(function() {
