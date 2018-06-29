@@ -193,6 +193,10 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('nav a').click(function() {
+        $('html').removeClass('mobile-menu-open');
+    });
+
     $(document).click(function(e) {
         if ($(e.target).is('nav')) {
             $('html').removeClass('mobile-menu-open');
@@ -345,6 +349,10 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('.main-gallery-all').click(function(e) {
+        $('.gallery-link').eq(0).trigger('click');
+        e.preventDefault();
+    });
 
     $('body').on('click', '.onegallery-item-link', function(e) {
         var curPadding = $('.wrapper').width();
@@ -408,6 +416,22 @@ $(document).ready(function() {
         });
 
         e.preventDefault();
+    });
+
+    $('.city-name').click(function() {
+        $('.city-name').removeClass('hover');
+        $('.city-name').addClass('hover');
+    });
+
+    $('.city-window-close').click(function() {
+        $('.city-name').removeClass('hover');
+        return false;
+    });
+
+    $(document).click(function(e) {
+        if ($(e.target).parents().filter('.city-name').length == 0 && !$(e.target).hasClass('city-name')) {
+            $('.city-name').removeClass('hover');
+        }
     });
 
 });
