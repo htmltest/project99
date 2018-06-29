@@ -434,6 +434,19 @@ $(document).ready(function() {
         }
     });
 
+    $('.up-link').click(function(e) {
+        $.scrollTo(0, 500);
+        e.preventDefault();
+    });
+    
+    $(window).on('load resize scroll', function() {
+        if ($(window).scrollTop() > $(window).height()) {
+            $('.up-link').addClass('visible');
+        } else {
+            $('.up-link').removeClass('visible');
+        }
+    });
+
 });
 
 $(window).on('resize', function() {
