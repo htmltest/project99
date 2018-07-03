@@ -68,7 +68,7 @@ $(document).ready(function() {
         nextArrow: '<button type="button" class="slick-next"></button>',
         responsive: [
             {
-                breakpoint: 1199,
+                breakpoint: 767,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -220,27 +220,19 @@ $(document).ready(function() {
     });
 
     $('body').on('click', '.window-gallery-next', function(e) {
-        var curIndex = $('.window-gallery-preview-item').index($('.window-gallery-preview-item.active'));
-        curIndex++;
-        if (curIndex > $('.window-gallery-preview-item').length - 1) {
-            curIndex = 0;
-        }
-        $('.gallery-link').eq(curIndex).trigger('click');
+        $('.window-gallery-big-inner').slick('slickNext');
         e.preventDefault();
     });
 
     $('body').on('click', '.window-gallery-prev', function(e) {
-        var curIndex = $('.window-gallery-preview-item').index($('.window-gallery-preview-item.active'));
-        curIndex--;
-        if (curIndex < 0) {
-            curIndex = $('.window-gallery-preview-item').length - 1;
-        }
-        $('.gallery-link').eq(curIndex).trigger('click');
+        $('.window-gallery-big-inner').slick('slickPrev');
         e.preventDefault();
     });
 
     $('body').on('click', '.gallery-link', function(e) {
         var curPadding = $('.wrapper').width();
+        $('html').data('scrollTop', $(window).scrollTop());
+        $('.wrapper').css({'margin-top': -$(window).scrollTop()})
         $('html').addClass('window-open');
         curPadding = $('.wrapper').width() - curPadding;
         $('body').css({'margin-right': curPadding + 'px'});
@@ -254,14 +246,7 @@ $(document).ready(function() {
         var curLink = $(this);
         var galleryIndex = $('.gallery-link').index(curLink);
         var newHTML =   '<div class="window-gallery">' +
-                            '<div class="window-gallery-title">' + curLink.data('gallery-title') + '</div>' +
-                            '<div class="window-gallery-header">' +
-                                '<div class="window-gallery-header-text"><div class="window-gallery-header-text-inner"></div></div>' +
-                                '<div class="window-gallery-header-info">' +
-                                    '<div class="window-gallery-header-info-date"></div>' +
-                                    '<div class="window-gallery-header-info-place"></div>' +
-                                '</div>' +
-                            '</div>';
+                            '<div class="window-gallery-title">' + curLink.data('gallery-title') + '</div>';
 
         newHTML +=          '<div class="window-gallery-big">' +
                                 '<div class="window-gallery-big-inner">';
@@ -273,16 +258,6 @@ $(document).ready(function() {
         newHTML +=              '</div>' +
                                 '<a href="#" class="window-gallery-prev"></a>' +
                                 '<a href="#" class="window-gallery-next"></a>' +
-                            '</div>';
-
-        newHTML +=          '<div class="window-gallery-preview">' +
-                                '<div class="window-gallery-preview-inner">';
-
-        $('.gallery-link').each(function() {
-            newHTML +=              '<div class="window-gallery-preview-item"><a href="#" title="' + $(this).data('gallery-title') + '"><img src="' + $(this).data('gallery-preview') + '" alt="" /></a></div>';
-        });
-
-        newHTML +=              '</div>' +
                             '</div>';
 
         newHTML +=      '</div>';
@@ -312,38 +287,11 @@ $(document).ready(function() {
         }
 
         $('.window-gallery-big-inner').slick({
-            dots: true,
+            dots: false,
             infinite: false,
             slidesToShow: 1,
             slidesToScroll: 1,
-            prevArrow: '<button type="button" class="slick-prev"></button>',
-            nextArrow: '<button type="button" class="slick-next"></button>'
-        }).on('setPosition', function(slick) {
-            var curIndex = $('.window-gallery-big-inner').slick('slickCurrentSlide');
-            var curItem = $('.window-gallery-big-item').eq(curIndex);
-            $('.window-gallery-header-text-inner').html(curItem.attr('title'));
-            $('.window-gallery-header-info-date').html(curItem.data('date'));
-            $('.window-gallery-header-info-place').html(curItem.data('city'));
-            var curWidth = $('.window-gallery-big-inner .slick-dots li').length * 17 - 8;
-            $('.window-gallery-big-inner .slick-prev').css({'margin-left': -curWidth / 2 - 17});
-            $('.window-gallery-big-inner .slick-next').css({'margin-left': curWidth / 2 + 8});
-        });
-
-        $('.window-gallery-preview-inner').slick({
-            dots: false,
-            infinite: false,
-            slidesToShow: 8,
-            slidesToScroll: 8,
-            arrows: false,
-            responsive: [
-                {
-                    breakpoint: 1199,
-                    settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 4
-                    }
-                }
-            ]
+            arrows: false
         });
 
         e.preventDefault();
@@ -438,7 +386,7 @@ $(document).ready(function() {
         $.scrollTo(0, 500);
         e.preventDefault();
     });
-    
+
     $(window).on('load resize scroll', function() {
         if ($(window).scrollTop() > $(window).height()) {
             $('.up-link').addClass('visible');
@@ -607,6 +555,8 @@ function windowClose() {
         $('.window').remove();
         $('html').removeClass('window-open');
         $('body').css({'margin-right': 0});
+        $('.wrapper').css({'margin-top': 0});
+        $(window).scrollTop($('html').data('scrollTop'));
     }
 }
 
