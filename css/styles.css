@@ -997,13 +997,17 @@ footer::after {content:""; display:block; clear:both}
 .window-gallery-video iframe {position:absolute; left:0; top:0; width:100%; height:100%}
 
 @media screen and (max-width:1199px) {
-    .window-gallery {width:367px}
-    .window-gallery-big-item {line-height:252px}
-    .window-gallery-big-item img {max-height:252px}
+    .window-gallery {width:600px}
     .window-gallery-prev,
     .window-gallery-next {width:32px; height:16px; margin:-8px 0 0 0; background:url(../images/gallery-big-arrows-mobile.png)}
     .window-gallery-prev {left:-44px}
     .window-gallery-next {right:-44px; background-position:-32px top}
+}
+
+@media screen and (max-width:767px) {
+    .window-gallery {width:367px}
+    .window-gallery-big-item {line-height:252px}
+    .window-gallery-big-item img {max-height:252px}
 }
 
 .search-page::after {content:""; display:block; clear:both}
