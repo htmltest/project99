@@ -283,6 +283,7 @@ $(document).ready(function() {
             infinite: true,
             slidesToShow: 1,
             slidesToScroll: 1,
+            adaptiveHeight: true,
             arrows: false
         });
 
@@ -296,6 +297,8 @@ $(document).ready(function() {
 
     $('body').on('click', '.onegallery-item-link', function(e) {
         var curPadding = $('.wrapper').width();
+        $('html').data('scrollTop', $(window).scrollTop());
+        $('.wrapper').css({'margin-top': -$(window).scrollTop()})
         $('html').addClass('window-open');
         curPadding = $('.wrapper').width() - curPadding;
         $('body').css({'margin-right': curPadding + 'px'});
@@ -354,6 +357,7 @@ $(document).ready(function() {
             infinite: true,
             slidesToShow: 1,
             slidesToScroll: 1,
+            adaptiveHeight: true,
             arrows: false
         });
 
@@ -478,6 +482,8 @@ function checkErrors() {
 
 function windowOpen(linkWindow, dataWindow, callbackWindow) {
     var curPadding = $('.wrapper').width();
+    $('html').data('scrollTop', $(window).scrollTop());
+    $('.wrapper').css({'margin-top': -$(window).scrollTop()})
     $('html').addClass('window-open');
     curPadding = $('.wrapper').width() - curPadding;
     $('body').css({'margin-right': curPadding + 'px'});
