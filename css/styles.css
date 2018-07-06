@@ -950,7 +950,7 @@ footer::after {content:""; display:block; clear:both}
 
 .window {position:fixed; left:0; top:0; right:0; bottom:0; z-index:99997; overflow:auto; background:rgba(0, 0, 0, 0.6)}
 .window-loading {position:absolute; left:50%; top:50%; width:24px; height:24px; margin:-12px 0 0 -12px; background:url(../images/loading.gif)}
-.window-container {position:absolute; z-index:99999; left:50%; top:50%}
+.window-container {position:absolute; z-index:99999; left:50%; top:50%; transition:all 0.1s}
 .window-container-load {position:fixed; left:-9999px; top:-9999px}
 .window-content {position:relative}
 .window-close {display:block; position:absolute; width:25px; height:25px; right:63px; top:57px; background:url(../images/window-close.png)}

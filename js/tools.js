@@ -285,6 +285,8 @@ $(document).ready(function() {
             slidesToScroll: 1,
             adaptiveHeight: true,
             arrows: false
+        }).on('setPosition', function(event, slick) {
+            $(window).trigger('resize');
         });
 
         e.preventDefault();
@@ -359,6 +361,8 @@ $(document).ready(function() {
             slidesToScroll: 1,
             adaptiveHeight: true,
             arrows: false
+        }).on('setPosition', function(event, slick) {
+            $(window).trigger('resize');
         });
 
         e.preventDefault();
