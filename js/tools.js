@@ -270,6 +270,17 @@ $(document).ready(function() {
                     $('.window-container').removeClass('window-container-load');
                     $('.window-loading').remove();
                     windowPosition();
+
+                    $('.window-gallery-big-inner').slick({
+                        dots: false,
+                        infinite: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        adaptiveHeight: true,
+                        arrows: false
+                    }).on('setPosition', function(event, slick) {
+                        $(window).trigger('resize');
+                    });
                 }
             });
         } else {
@@ -277,17 +288,6 @@ $(document).ready(function() {
             $('.window-loading').remove();
             windowPosition();
         }
-
-        $('.window-gallery-big-inner').slick({
-            dots: false,
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            adaptiveHeight: true,
-            arrows: false
-        }).on('setPosition', function(event, slick) {
-            $(window).trigger('resize');
-        });
 
         e.preventDefault();
     });
@@ -346,6 +346,17 @@ $(document).ready(function() {
                     $('.window-container').removeClass('window-container-load');
                     $('.window-loading').remove();
                     windowPosition();
+
+                    $('.window-gallery-big-inner').slick({
+                        dots: false,
+                        infinite: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        adaptiveHeight: true,
+                        arrows: false
+                    }).on('setPosition', function(event, slick) {
+                        $(window).trigger('resize');
+                    });
                 }
             });
         } else {
@@ -353,17 +364,6 @@ $(document).ready(function() {
             $('.window-loading').remove();
             windowPosition();
         }
-
-        $('.window-gallery-big-inner').slick({
-            dots: false,
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            adaptiveHeight: true,
-            arrows: false
-        }).on('setPosition', function(event, slick) {
-            $(window).trigger('resize');
-        });
 
         e.preventDefault();
     });
