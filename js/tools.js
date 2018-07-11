@@ -194,20 +194,18 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $('nav a').click(function() {
-        $('html').removeClass('mobile-menu-open');
-    });
-
-    $(document).click(function(e) {
-        if ($(e.target).is('nav')) {
+    $('nav a').click(function(e) {
+        if (!$(this).parent().hasClass('nav-with-submenu')) {
             $('html').removeClass('mobile-menu-open');
-        }
-    });
-
-    $('.nav-with-submenu a').click(function(e) {
-        if ($('html').hasClass('mobile-menu-open') && $(this).parent().find('ul').length > 0) {
+        } else {
             $(this).parent().toggleClass('open');
             e.preventDefault();
+        }
+    });
+    
+    $(document).click(function(e) {
+        if ($(e.target).hasClass('nav')) {
+            $('html').removeClass('mobile-menu-open');
         }
     });
 
