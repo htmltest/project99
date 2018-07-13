@@ -1023,11 +1023,12 @@ footer::after {content:""; display:block; clear:both}
 
 .window-news {padding:0 60px 20px 60px; width:1200px; box-sizing:border-box; background:#fff}
 .window-news .news-header {margin:0 -60px; padding:0}
-.window-news .news-header-inner {margin:0 -15px; padding-right:30px}
+.window-news .news-header-inner {margin:0 -15px; padding-right:100px}
 
 @media screen and (max-width:1199px) {
     .window-news {padding:0 25px 20px 25px; width:480px}
     .window-news .news-header {margin:0 -25px}
+    .window-news .news-header-inner {padding-right:30px}
 }
 
 .search-page::after {content:""; display:block; clear:both}
