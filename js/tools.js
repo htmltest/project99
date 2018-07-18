@@ -67,6 +67,7 @@ $(document).ready(function() {
         slidesToScroll: 1,
         prevArrow: '<button type="button" class="slick-prev"></button>',
         nextArrow: '<button type="button" class="slick-next"></button>',
+        accessibility: false,
         responsive: [
             {
                 breakpoint: 767,
@@ -269,6 +270,7 @@ $(document).ready(function() {
                     $('.window-loading').remove();
                     windowPosition();
 
+                    $('.window-gallery-big-inner img').css({'max-height': 'calc(100vh - ' + ($('.window-gallery-title').outerHeight() + 125) + 'px)'});
                     $('.window-gallery-big-inner').slick({
                         dots: false,
                         infinite: true,
@@ -345,6 +347,7 @@ $(document).ready(function() {
                     $('.window-loading').remove();
                     windowPosition();
 
+                    $('.window-gallery-big-inner img').css({'max-height': 'calc(100vh - ' + ($('.window-gallery-title').outerHeight() + 125) + 'px)'});
                     $('.window-gallery-big-inner').slick({
                         dots: false,
                         infinite: true,

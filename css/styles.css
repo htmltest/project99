@@ -997,8 +997,8 @@ footer::after {content:""; display:block; clear:both}
 .window-gallery-big {position:relative; font-size:0; line-height:0; letter-spacing:-1px; white-space:nowrap; margin:0 0 65px 0}
 .window-gallery-big-inner {position:relative; width:100%; overflow:hidden}
 .window-gallery-big-inner.slick-initialized {overflow:visible}
-.window-gallery-big-item {display:inline-block; vertical-align:top; width:100%; position:relative; overflow:hidden; text-align:center}
-.window-gallery-big-item img {max-width:99%; vertical-align:middle}
+.window-gallery-big-item {-webkit-backface-visibility:hidden; -moz-backface-visibility:hidden; backface-visibility:hidden; display:inline-block; vertical-align:top; width:100%; position:relative; overflow:hidden; text-align:center}
+.window-gallery-big-item img {max-width:100%; vertical-align:middle}
 .window-gallery-big-item.slick-slide img {display:inline-block}
 .window-gallery-prev,
 .window-gallery-next {display:block; position:absolute; z-index:2; top:50%; width:75px; height:58px; border:none; border-radius:0; margin:-29px 0 0 0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; background:url(../images/gallery-big-arrows.png)}
