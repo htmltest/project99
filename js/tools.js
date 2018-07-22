@@ -67,7 +67,6 @@ $(document).ready(function() {
         slidesToScroll: 1,
         prevArrow: '<button type="button" class="slick-prev"></button>',
         nextArrow: '<button type="button" class="slick-next"></button>',
-        accessibility: false,
         responsive: [
             {
                 breakpoint: 767,
@@ -281,6 +280,7 @@ $(document).ready(function() {
                     }).on('setPosition', function(event, slick) {
                         $(window).trigger('resize');
                     });
+                    $('.window-gallery-next').trigger('focus');
                 }
             });
         } else {
@@ -358,6 +358,7 @@ $(document).ready(function() {
                     }).on('setPosition', function(event, slick) {
                         $(window).trigger('resize');
                     });
+                    $('.window-gallery-next').trigger('focus');
                 }
             });
         } else {
