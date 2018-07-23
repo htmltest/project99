@@ -209,16 +209,6 @@ $(document).ready(function() {
         }
     });
 
-    $('body').on('click', '.window-gallery-next', function(e) {
-        $('.window-gallery-big-inner').slick('slickNext');
-        e.preventDefault();
-    });
-
-    $('body').on('click', '.window-gallery-prev', function(e) {
-        $('.window-gallery-big-inner').slick('slickPrev');
-        e.preventDefault();
-    });
-
     $('.gallery-link').click(function(e) {
         var curPadding = $('.wrapper').width();
         $('html').data('scrollTop', $(window).scrollTop());
@@ -246,8 +236,6 @@ $(document).ready(function() {
         });
 
         newHTML +=              '</div>' +
-                                '<a href="#" class="window-gallery-prev"></a>' +
-                                '<a href="#" class="window-gallery-next"></a>' +
                             '</div>';
 
         newHTML +=      '</div>';
@@ -276,11 +264,12 @@ $(document).ready(function() {
                         slidesToShow: 1,
                         slidesToScroll: 1,
                         adaptiveHeight: true,
-                        arrows: false
+                        prevArrow: '<button type="button" class="slick-prev"></button>',
+                        nextArrow: '<button type="button" class="slick-next"></button>'
                     }).on('setPosition', function(event, slick) {
                         $(window).trigger('resize');
                     });
-                    $('.window-gallery-next').trigger('focus');
+                    $('.window-gallery-big-inner .slick-next').trigger('focus');
                 }
             });
         } else {
@@ -324,8 +313,6 @@ $(document).ready(function() {
         });
 
         newHTML +=              '</div>' +
-                                '<a href="#" class="window-gallery-prev"></a>' +
-                                '<a href="#" class="window-gallery-next"></a>' +
                             '</div>';
 
         newHTML +=      '</div>';
@@ -354,11 +341,12 @@ $(document).ready(function() {
                         slidesToShow: 1,
                         slidesToScroll: 1,
                         adaptiveHeight: true,
-                        arrows: false
+                        prevArrow: '<button type="button" class="slick-prev"></button>',
+                        nextArrow: '<button type="button" class="slick-next"></button>'
                     }).on('setPosition', function(event, slick) {
                         $(window).trigger('resize');
                     });
-                    $('.window-gallery-next').trigger('focus');
+                    $('.window-gallery-big-inner .slick-next').trigger('focus');
                 }
             });
         } else {
