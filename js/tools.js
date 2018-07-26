@@ -202,7 +202,7 @@ $(document).ready(function() {
             e.preventDefault();
         }
     });
-    
+
     $(document).click(function(e) {
         if ($(e.target).hasClass('nav')) {
             $('html').removeClass('mobile-menu-open');
@@ -386,6 +386,36 @@ $(document).ready(function() {
             $('.up-link').removeClass('visible');
         }
     });
+
+    if ($('.theory').length > 0) {
+        var countItems = $('.theory-item').length;
+        var radiusH = 500;
+        var radiusV = 376;
+        var canvas = document.getElementById('theory-scheme');
+        var context = canvas.getContext('2d');
+        context.lineWidth = 2;
+        $('.theory-scheme').css({'transition': 'opacity .5s ease ' + (0.05 * countItems) + 's'});
+
+        for (var i = 0; i < countItems; i++) {
+            var f = (360 - 360 / countItems * i + 180) * Math.PI / 180;
+            var left = Math.round(radiusH + radiusH * Math.sin(f));
+            var top = Math.round(radiusV + radiusV * Math.cos(f));
+            var curItem = $('.theory-item').eq(i);
+            var curDelay = 0.05 * i;
+            curItem.css({'top': top, 'left': left, 'transition': 'color .2s ease 0s, opacity .1s ease ' + curDelay + 's'});
+
+            context.beginPath();
+            context.moveTo(radiusH, radiusV);
+            context.lineTo(left, top);
+            if (curItem.is('a')) {
+                context.strokeStyle = '#d9c7eb';
+            } else {
+                context.strokeStyle = '#efefef';
+            }
+            context.stroke();
+            context.closePath();
+        }
+    }
 
 });
 
