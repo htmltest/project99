@@ -23,6 +23,7 @@ $(document).ready(function() {
             $('.main-events-tab').removeClass('active');
             $('.main-events-tab').eq(curIndex).addClass('active');
             $('.main-events-menu-current-text').html(curLi.find('.main-events-menu-title').html());
+            $(window).trigger('scroll');
         }
         $('.main-events-menu').removeClass('open');
         e.preventDefault();
