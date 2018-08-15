@@ -970,10 +970,10 @@ footer::after {content:""; display:block; clear:both}
 
 @media screen and (max-width:1199px) {
     .window-gallery {width:600px}
-    .window-gallery-prev,
-    .window-gallery-next {width:32px; height:16px; margin:-8px 0 0 0; background:url(../images/gallery-big-arrows-mobile.png)}
-    .window-gallery-prev {left:-44px}
-    .window-gallery-next {right:-44px; background-position:-32px top}
+    .window-gallery-big-inner .slick-prev,
+    .window-gallery-big-inner .slick-next {width:32px; height:16px; margin:-8px 0 0 0; background:url(../images/gallery-big-arrows-mobile.png)}
+    .window-gallery-big-inner .slick-prev {left:-44px}
+    .window-gallery-big-inner .slick-next {right:-44px; background-position:-32px top}
 }
 
 @media screen and (max-width:767px) {
