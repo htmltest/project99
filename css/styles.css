@@ -977,7 +977,7 @@ footer::after {content:""; display:block; clear:both}
 }
 
 @media screen and (max-width:767px) {
-    .window-gallery {width:367px}
+    .window-gallery {width:300px}
     .window-gallery-big-item {line-height:252px}
     .window-gallery-big-item img {max-height:252px}
 }
