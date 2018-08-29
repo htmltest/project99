@@ -210,6 +210,12 @@ $(document).ready(function() {
         }
     });
 
+    $('.nav').click(function(e) {
+        if ($(e.target).hasClass('nav')) {
+            $('html').removeClass('mobile-menu-open');
+        }
+    });
+
     $('.gallery-link').click(function(e) {
         var curPadding = $('.wrapper').width();
         $('html').data('scrollTop', $(window).scrollTop());
