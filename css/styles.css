@@ -790,6 +790,7 @@ div.theory-item .theory-item-wrap {background:#efefef}
 
 .module {background:#f5f6f8; margin:7px 0 0 0; padding:57px 0 59px 0}
 .module-menu {margin:0 -28px 0 100px; background:#d9c7eb; position:relative; z-index:1}
+.module-menu-current {display:none}
 .module-menu ul {margin:0; padding:19px 0 174px 0; list-style:none; font-size:16px; line-height:22px}
 .module-menu ul::after {content:""; display:block; clear:both}
 .module-menu ul li {float:left; width:25%; margin:0; padding:0 0 0 60px; box-sizing:border-box}
@@ -802,15 +803,25 @@ div.theory-item .theory-item-wrap {background:#efefef}
 
 @media screen and (max-width:1199px) {
     .module {margin:0}
-    .module-menu {margin:0 -15px 0 15px}
-    .module-menu ul {font-size:14px}
-    .module-menu ul li {width:190px; padding:0 20px}
-    .module-menu ul li.authorized a::after {bottom:0}
+    .module-menu.open {z-index:999}
+    .module-menu {margin:0 -15px 0 15px; padding:19px 20px 174px 20px}
+    .module-menu-current {display:block; cursor:pointer; border-top:2px solid #25354f; padding:5px 24px 0 0; position:relative; color:#25354f; font-size:14px; line-height:22px}
+    .module-menu-current::after {content:""; display:block; position:absolute; right:0; top:12px; width:14px; height:8px; background:url(../images/main-events-menu-current.png)}
+    .module-menu ul {display:none; position:absolute; left:20px; right:20px; top:19px; background:#f5f6f8; white-space:normal; padding:5px 0 22px 0; font-size:16px; font-weight:bold}
+    .module-menu.open ul {display:block}
+    .module-menu ul li {float:none; width:auto; margin:0; padding:5px 0 0 0}
+    .module-menu ul li a {display:block; color:#25354f; padding:10px 43px 10px 15px; border-top:none; text-decoration:none}
+    .module-menu ul li a:hover {color:#25354f; text-decoration:none}
+    .module-menu ul li.active a {color:#25354f; background:#d9c7eb}
+    .module-menu ul li.active a {text-decoration:none}
+    .module-menu ul li.authorized a {opacity:1}
+    .module-menu ul li.authorized a::after {top:5px; bottom:auto; right:5px}
 }
 
 .module-info-list {background:#fff; position:relative; margin:-156px 4px 0 32px; z-index:2; box-shadow:1px 1px 4px rgba(0, 0, 0, 0.09); padding:0 69px 50px 75px}
 .module-info-item {position:absolute; visibility:hidden; width:100%; opacity:0; transition:opacity 1s}
 .module-info-item.active {position:relative; visibility:visible; opacity:1}
+.module-info-title-mobile {display:none}
 .module-info-title {font-size:20px; line-height:24px; font-weight:bold; padding:50px 0 0 0}
 .module-info-descr {margin:24px 0}
 .module-info-cols::after {content:""; display:block; clear:both}
@@ -839,7 +850,8 @@ div.theory-item .theory-item-wrap {background:#efefef}
 
 @media screen and (max-width:1199px) {
     .module-info-list {margin-left:0; margin-right:0; padding:0 20px 40px 20px}
-    .module-info-title {padding:38px 0 0 0}
+    .module-info-title-mobile {display:block; padding:38px 0 0 0; font-size:24px; line-height:28px; font-weight:bold}
+    .module-info-title {padding:18px 0 0 0}
     .module-info-descr {margin:24px 0 -20px 0}
     .module-info-docs {float:none; width:auto}
     .module-info-docs .module-info-title {padding-bottom:13px}
