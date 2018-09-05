@@ -807,7 +807,7 @@ div.theory-item .theory-item-wrap {background:#efefef}
     .module-menu {margin:0 -15px 0 15px; padding:19px 20px 174px 20px}
     .module-menu-current {display:block; cursor:pointer; border-top:2px solid #25354f; padding:5px 24px 0 0; position:relative; color:#25354f; font-size:14px; line-height:22px}
     .module-menu-current::after {content:""; display:block; position:absolute; right:0; top:12px; width:14px; height:8px; background:url(../images/main-events-menu-current.png)}
-    .module-menu ul {display:none; position:absolute; left:20px; right:20px; top:19px; background:#f5f6f8; white-space:normal; padding:5px 0 22px 0; font-size:16px; font-weight:bold}
+    .module-menu ul {display:none; position:absolute; left:0; right:0; top:0; background:#fff; white-space:normal; padding:5px 0 22px 0; font-size:14px; font-weight:300; border:20px solid #c39fdf}
     .module-menu.open ul {display:block}
     .module-menu ul li {float:none; width:auto; margin:0; padding:5px 0 0 0}
     .module-menu ul li a {display:block; color:#25354f; padding:10px 43px 10px 15px; border-top:none; text-decoration:none}
